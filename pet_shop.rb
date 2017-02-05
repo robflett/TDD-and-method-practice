@@ -77,10 +77,6 @@ end
 
 def customer_pet_count(customers)
 
-  total = 0
-    for person in customers
-      total += person[:customers]
-    end
-  return total
+  return customers[:pets].size
 
 end
