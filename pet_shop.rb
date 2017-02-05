@@ -42,17 +42,45 @@ def pets_by_breed(pet_shop, dog_type)
 
 end           
 
-# def pets_by_breed(pet_shop, dog_type)
-#   array_of_pets = []
+# def find_pet_by_name(pet_shop, pet_name)
+# not_found = nil
 
-#   for item in pet_shop[:pets]
+#   for pet in pet_shop[:pets]
+#     if pet.has_value?(pet_name)
+#       not_found << pet
+#       return not_found
+#     else
+#       return not_found
+#     end
+#   end
 
-#     if array_of_pets(dog_type)
-#       array_of_pets(dog_type).push(item[:pets][:breed])
+# end
+
+# def remove_pet_by_name(pet_shop, pet_name)
+#   result = nil
+
+#     for pet in pet_shop[:pets]
+#       result = pet if pet == pet_name
 #     end
 
-#   end 
+#     if result != nil
+#       pet_shop[:pets].delete(result)
+#     end
 
-#   return array_of_pets
-#end            #trying to get an array that returns 2 to match the expected value. 2 refers to the amount of British Shorthairs - how to get the shorthairs to be counted but not the others??? If British Shorthairs == nil then delete that entry?
-#The test is looking for 2 in the pets variable.
+# end  ###uses find_pet_by_name within the method
+
+def add_pet_to_stock(pet_shop, new_pet)
+
+  pet_shop[:pets] << new_pet
+
+end
+
+def customer_pet_count(customers)
+
+  total = 0
+    for person in customers
+      total += person[:customers]
+    end
+  return total
+
+end
