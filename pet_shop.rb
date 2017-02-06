@@ -43,41 +43,60 @@ def pets_by_breed(pet_shop, dog_type)
 end           
 
 # def find_pet_by_name(pet_shop, pet_name)
-#   # no_pet = []
+#   no_pet = []
 #   # namepet = pet_shop[:name]
 
-#   # for pet in pet_shop[:pets]
-#   #   if pet.has_value?(pet_name)
-      
-#   #     return namepet
-#     # else
-#     #   no_pet << nil
-#     #   return no_pet
-#     # end
-#   # end
+#   for pet in pet_shop[:pets]
+#     if pet.has_value?(pet_name)
+#       no_pet << pet 
+#       return no_pet
+#     else
+#       no_pet << nil
+#       return no_pet
+#     end
+#   end
 
 # end
 
+##solution with aid from colleague - simpler, less complex and less steps that may go wrong.
 def find_pet_by_name(pet_shop, pet_name)
-  
-  pet_shop.select! {|k,v| v == pet_name}
-  return pet_shop
+  for pet in pet_shop[:pets]
+    return pet if ( pet[:name] == pet_name)
+  end
 
+  return nil
+end
+
+# def find_pet_by_name(pet_shop, pet_name)
+  
+#   pet_shop[:pets].select! {|k,v| v == pet_name}
+#   return pet_shop
+
+# end
+
+def pets_in_stock(pet_shop)
+  return pet_shop[:pets]
 end
 
 
-# def remove_pet_by_name(pet_shop, pet_name)
-#   result = nil
+def remove_pet_by_name(pet_shop, pet_name)
+  result = nil
+  index = 0
+  pets = pets_in_stock(pet_shop) #calling method within a method
 
-#     for pet in pet_shop[:pets]
-#       result = pet if pet == pet_name
-#     end
+    for pet in pets #taking the result from the outside method
+      if ( pet[:name] == pet_name ) 
+        result = pet 
+        break
+      end
+    index += 1
+    end 
 
-#     if result != nil
-#       pet_shop[:pets].delete(result)
-#     end
+    return if (result == nil)
+      pets.delete_at(index)
+  
 
-# end  ###uses find_pet_by_name within the method
+end  ###uses find_pet_by_name within the method
 
 def add_pet_to_stock(pet_shop, new_pet)
 
@@ -99,4 +118,6 @@ def add_pet_to_customer(person, new_pet)
 
 end
 
-
+# def customer_can_afford_pet(customer, new_pet)
+#   if customer[:cash] >= new_pet[:price] return true
+# end
