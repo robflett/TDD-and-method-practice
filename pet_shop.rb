@@ -43,18 +43,28 @@ def pets_by_breed(pet_shop, dog_type)
 end           
 
 # def find_pet_by_name(pet_shop, pet_name)
-# not_found = nil
+#   # no_pet = []
+#   # namepet = pet_shop[:name]
 
-#   for pet in pet_shop[:pets]
-#     if pet.has_value?(pet_name)
-#       not_found << pet
-#       return not_found
-#     else
-#       return not_found
-#     end
-#   end
+#   # for pet in pet_shop[:pets]
+#   #   if pet.has_value?(pet_name)
+      
+#   #     return namepet
+#     # else
+#     #   no_pet << nil
+#     #   return no_pet
+#     # end
+#   # end
 
 # end
+
+def find_pet_by_name(pet_shop, pet_name)
+  
+  pet_shop.select! {|k,v| v == pet_name}
+  return pet_shop
+
+end
+
 
 # def remove_pet_by_name(pet_shop, pet_name)
 #   result = nil
